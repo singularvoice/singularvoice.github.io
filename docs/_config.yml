@@ -1,15 +1,15 @@
-title:              Clean Blog
-email:              your-email@example.com
-description:        A Blog Theme by Start Bootstrap
-author:             Start Bootstrap
+title:              Singular Voice
+email:              a.hassanzadeh.h@gmail.com
+description:        Thoughts of a software engineer that abandoned from his favorite world
+author:             singular voice
 baseurl:            ""
 
 # Social Profiles
-twitter_username:   SBootstrap
-github_username:    StartBootstrap
-facebook_username:  StartBootstrap
+#twitter_username:   SBootstrap
+github_username:    singularvoice
+#facebook_username:  StartBootstrap
 instagram_username:
-linkedin_username:
+linkedin_username: a-hassanzadeh-h
 
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
