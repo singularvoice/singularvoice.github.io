@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-12-20T11:03:16+03:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Singular Voice</title><subtitle>Thoughts of a software engineer that abandoned from his favorite world</subtitle><author><name>Amir</name></author><entry><title type="html">Welcome to SingularVoice: A Journey Through Code and Creativity</title><link href="http://localhost:4000/welcome.html" rel="alternate" type="text/html" title="Welcome to SingularVoice: A Journey Through Code and Creativity" /><published>2023-12-20T09:00:00+03:30</published><updated>2023-12-20T09:00:00+03:30</updated><id>http://localhost:4000/welcom-to-singularvoice</id><content type="html" xml:base="http://localhost:4000/welcome.html"><![CDATA[<section>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-12-20T17:39:23+03:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Singular Voice</title><subtitle>Thoughts of a software engineer that abandoned from his favorite world</subtitle><author><name>Amir</name></author><entry><title type="html">The Story Behind ‘SingularVoice’</title><link href="http://localhost:4000/story-behind-singularvoice.html" rel="alternate" type="text/html" title="The Story Behind ‘SingularVoice’" /><published>2023-12-20T16:00:00+03:30</published><updated>2023-12-20T16:00:00+03:30</updated><id>http://localhost:4000/story-behind-singularvoice</id><content type="html" xml:base="http://localhost:4000/story-behind-singularvoice.html"><![CDATA[<section>
+    <h2>Introduction</h2>
+    <p>Have you ever watched "Person of Interest"? It's a show that mixes technology, good and bad, and exciting stories. It's about a super-smart computer, called The Machine, that knows when bad things will happen. This show isn't just fun to watch; it makes you think about important stuff like right and wrong and how tech affects our lives.</p>
+</section>
+
+<section>
+    <h2>About the Show and The Machine</h2>
+    <p>In "Person of Interest," The Machine is a computer built by a smart but mysterious guy named Harold Finch. What's special about The Machine is that it tries to do the right thing. It doesn't just see what people are doing; it helps stop crimes. This is different from what we usually see in shows and movies about computers.</p>
+</section>
+<section>
+    <h2>What The Machine Teaches Us</h2>
+    <p>The way The Machine works in the show is really interesting. It doesn't just watch people; it tries to save them. It uses its smarts to stop bad things from happening, with the help of some humans. This part of the story makes us think about questions like how much we should let computers do and what happens when computers make big decisions.</p>
+</section>
+<section>
+    <h2>Why I Chose 'SingularVoice'</h2>
+    <p>I picked the name "SingularVoice" because of this show. It comes from a powerful line in the last episode: <b style="color: #192A4A">"If you can hear this, you're alone. The only thing left of me is the sound of my voice."</b> This line is about how what we say and do can last a long time and affect others even when we're not around.
+        "SingularVoice" means a lot to me. It reminds me of how technology and doing the right thing are both important. On my blog, I want to talk about tech stuff in a way that's thoughtful and personal, just like The Machine.
+    </p>
+</section>
+<section>
+    <h2>Conclusion</h2>
+    <p>So that's the story of 'SingularVoice.' It's a way for me to remember a show that changed how I think about technology. On my blog, I'll be exploring all sorts of ideas about tech, how we use it, and what it means to be human, just like the show did.</p>
+</section>]]></content><author><name>Amir</name></author><summary type="html"><![CDATA[Introduction Have you ever watched "Person of Interest"? It's a show that mixes technology, good and bad, and exciting stories. It's about a super-smart computer, called The Machine, that knows when bad things will happen. This show isn't just fun to watch; it makes you think about important stuff like right and wrong and how tech affects our lives.]]></summary></entry><entry><title type="html">Welcome to SingularVoice: A Journey Through Code and Creativity</title><link href="http://localhost:4000/welcome.html" rel="alternate" type="text/html" title="Welcome to SingularVoice: A Journey Through Code and Creativity" /><published>2023-12-20T09:00:00+03:30</published><updated>2023-12-20T09:00:00+03:30</updated><id>http://localhost:4000/welcom-to-singularvoice</id><content type="html" xml:base="http://localhost:4000/welcome.html"><![CDATA[<section>
     <h2>Hello and Welcome!</h2>
     <p>My name is Amir, and I'm thrilled to welcome you to SingularVoice, a personal blog where I'll be sharing my journey through the fascinating world of software development, technology insights, and the art of balancing code with creativity.</p>
 </section>
