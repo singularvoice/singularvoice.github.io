@@ -9593,6 +9593,13 @@ header.masthead .post-heading .meta a {
   margin: 0 0 4px;
 }
 
+.resume-company-description {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
 .resume-bullet-item {
   margin-bottom: 8px;
 }
