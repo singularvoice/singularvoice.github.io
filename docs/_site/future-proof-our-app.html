@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    Welcome to SingularVoice: A Journey Through Code and Creativity - Singular Voice
+    The Shield Against Backend Turbulence - Singular Voice
     
   </title>
 
-  <meta name="description" content="Hello and Welcome! My name is Amir, and I&#39;m thrilled to welcome you to SingularVoice, a personal blog where I&#39;ll be sharing my journey through the fascinatin...">
+  <meta name="description" content="You push a new update, and your app is shining—until the backend team updates their APIs. Now, your app&#39;s features start breaking. What if there was a way to...">
 
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -21,7 +21,7 @@
   <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/welcome.html">
+  <link rel="canonical" href="http://localhost:4000/future-proof-our-app.html">
   <link rel="alternate" type="application/rss+xml" title="Singular Voice" href="/feed.xml">
   <link rel="icon" type="image/png" href="/img/favicon.png">
 
@@ -72,13 +72,13 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Welcome to SingularVoice: A Journey Through Code and Creativity</h1>
+            <h1>The Shield Against Backend Turbulence</h1>
             
             <span class="meta">Posted by
               <a href="#">Amir</a>
-              on December 20, 2023 &middot; <span class="reading-time" title="Estimated read time">
+              on January 01, 2024 &middot; <span class="reading-time" title="Estimated read time">
   
-   3 mins  read </span>
+   2 mins  read </span>
 
             </span>
           </div>
@@ -92,53 +92,51 @@
       <div class="col-lg-8 col-md-10 mx-auto">
 
         <section>
-    <h2>Hello and Welcome!</h2>
-    <p>My name is Amir, and I'm thrilled to welcome you to SingularVoice, a personal blog where I'll be sharing my journey through the fascinating world of software development, technology insights, and the art of balancing code with creativity.</p>
+    <p>You push a new update, and your app is shining—until the backend team updates their APIs. Now, your app's features start breaking. What if there was a way to shield your app from such disruptions? This isn't about overhauling your entire architecture overnight; it's about starting with a single, manageable step drawn from Uncle Bob's Clean Architecture principles.</p>
 </section>
 
 <section>
-    <h2>Who am I?</h2>
-    <p>Hi, my name is Amir and I'm a software engineer with a diverse background in both front-end and back-end development. I have experience working with a variety of technologies, including Angular, React Native, and various programming languages. My journey in technology has been a fascinating one, filled with interesting challenges and opportunities for growth. One thing that's really shaped my approach to software engineering is my interest in software architecture and design, which has given me a strong focus on quality and a passion for finding innovative solutions. Overall, I'm proud of the work I've done and excited to continue learning and growing in this ever-evolving field.</p>
+    <h4>Context and Background:</h4>
+    <p>Implementing the full spectrum of Clean Architecture can seem daunting, and that's not our goal today. Instead, let's tackle one specific pain point: the ripple effect of changes in the Backend API layer. It's a simple task, a starting point for bigger things.</p>
 </section>
-
 <section>
-    <h2>What is SingularVoice?</h2>
-    <p>SingularVoice is more than just a blog; it's a narrative of my personal and professional growth in the realm of technology. Here, you'll find a mix of content ranging from technical tutorials and insights into software architecture to discussions on professional soft skills and the ever-evolving landscape of tech.</p>
-</section>
-
-
-<section>
-    <h2>What Can You Expect?</h2>
+    <h4>Why This First Step Matters:</h4>
     <ul>
-        <li>
-            <strong>In-Depth Tutorials:</strong>
-            <p>I'll be sharing tutorials that delve into various aspects of software development. Whether you're a beginner or an experienced developer, there's something to learn.</p>
-        </li>
-        <li>
-            <strong>Tech Insights and News:</strong>
-            <p>Stay updated with the latest trends in technology. I'll be exploring new tools, languages, and sharing my thoughts on emerging tech news.</p>
-        </li>
-        <li>
-            <strong>Professional Development:</strong>
-            <p>            It's not all about code. Soft skills are crucial for success in the tech industry. I'll share tips on effective communication, teamwork, and personal development.</p>
-        </li>
+        <li>It directly addresses the immediate pain of backend changes forcing unwanted frontend revisions.</li>
+        <li>It sets the foundation for a more resilient and flexible app architecture.</li>
+        <li>It's an attainable goal, regardless of the size or stage of your project.</li>
     </ul>
 </section>
-
 <section>
-    <h2>Join Me on This Journey</h2>
-    <p>I'm excited to embark on this blogging journey and even more excited to have you join me. Whether you're here to learn, share, or simply read, I welcome you to SingularVoice. Let's explore the vast and dynamic world of technology together.</p>
+    <h2 class="mt-4">The Solution: Abstraction and Adapter Layer:</h2>
+    <p>To create an app that stands independent of backend fluctuations, we need a shield—an adapter layer that abstracts away the backend's Request DTOs and Response DTOs.</p>
+    <h4>Before the Adapter Layer:</h4>
+    <p>
+        Here's a familiar scene: our app's user profile fetch function breaks with a backend change.
+    </p>
+    <img class="img-fluid mb-4" src="/img/blog-1-img-1.png" alt="Demo Image">
+    <h4>Introducing the Adapter Layer:</h4>
+    <p>
+        Now, let's isolate our app with its own data models. Check out this approach:
+
+
+    </p>
+    <img class="img-fluid mb-4 " src="/img/blog-1-img-2.png" alt="Demo Image">
+    As you see, our app now speaks in its own language. Backend DTOs no longer dictate our app's data structure. We define our app models, and the adapter layer does the translation work.
+    <p></p>
+
+</section>
+<section>
+    <h4>Applying the Approach:</h4>
+    <p>This method is a game-changer for both new and existing projects. It's straightforward and doesn't pile on extra work.
+
+        For existing projects already tied to backend models, begin with creating adapter services for your use cases. Initially, let these adapters simply pass through the data. This grants you an intermediary layer. Gradually, you can evolve your app's models to serve the app's efficiency, not just to mirror the backend.</p>
 </section>
 
 <section>
-    <h2>Stay Connected</h2>
-    <p>You can also follow me on <a href="https://github.com/singularvoice">GitHub</a> or <a href="https://www.linkedin.com/in/a-hassanzadeh-h/">Linkedin</a> for more snippets of my tech life.</p>
-</section>
-
-<section>
-    <h2>Your Feedback Matters</h2>
-    <p>Your thoughts and feedback are incredibly important to me. I warmly welcome your insights, suggestions, and discussion topics via email. Please feel free to reach out to me at <a href="mailto:a.hassanzadeh.h@gmail.com">a.hassanzadeh.h@gmail.com</a> with any thoughts or topics you'd like to see covered in future posts.</p>
-    <p>Thank you for visiting SingularVoice. I look forward to embarking on this journey with you and exploring the fascinating world of technology together!</p>
+    <h2>Conclusion:
+    </h2>
+    <p>Starting with an adapter layer might seem like a small step, but it's a leap towards a robust, Clean Architecture. It's about making your client app not just independent, but resilient and ready for the future.</p>
 </section>
 
 
@@ -147,9 +145,9 @@
         <div class="clearfix">
 
           
+          <a class="btn btn-primary float-left" href="/story-behind-singularvoice.html" data-toggle="tooltip" data-placement="top" title="The Story Behind 'SingularVoice'">&larr; Previous<span class="d-none d-md-inline">
+              Post</span></a>
           
-          <a class="btn btn-primary float-right" href="/story-behind-singularvoice.html" data-toggle="tooltip" data-placement="top" title="The Story Behind 'SingularVoice'">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
           
 
         </div>

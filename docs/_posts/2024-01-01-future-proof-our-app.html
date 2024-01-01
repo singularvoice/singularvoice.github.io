@@ -1,0 +1,55 @@
+---
+layout: post
+title: "The Shield Against Backend Turbulence"
+date: 2024-01-01 21:00:00 +0430
+permalink: /future-proof-our-app.html
+background: '/img/posts/05.jpg'
+---
+
+<section>
+    <p>You push a new update, and your app is shining—until the backend team updates their APIs. Now, your app's features start breaking. What if there was a way to shield your app from such disruptions? This isn't about overhauling your entire architecture overnight; it's about starting with a single, manageable step drawn from Uncle Bob's Clean Architecture principles.</p>
+</section>
+
+<section>
+    <h4>Context and Background:</h4>
+    <p>Implementing the full spectrum of Clean Architecture can seem daunting, and that's not our goal today. Instead, let's tackle one specific pain point: the ripple effect of changes in the Backend API layer. It's a simple task, a starting point for bigger things.</p>
+</section>
+<section>
+    <h4>Why This First Step Matters:</h4>
+    <ul>
+        <li>It directly addresses the immediate pain of backend changes forcing unwanted frontend revisions.</li>
+        <li>It sets the foundation for a more resilient and flexible app architecture.</li>
+        <li>It's an attainable goal, regardless of the size or stage of your project.</li>
+    </ul>
+</section>
+<section>
+    <h2 class="mt-4">The Solution: Abstraction and Adapter Layer:</h2>
+    <p>To create an app that stands independent of backend fluctuations, we need a shield—an adapter layer that abstracts away the backend's Request DTOs and Response DTOs.</p>
+    <h4>Before the Adapter Layer:</h4>
+    <p>
+        Here's a familiar scene: our app's user profile fetch function breaks with a backend change.
+    </p>
+    <img class="img-fluid mb-4" src="/img/blog-1-img-1.png" alt="Demo Image">
+    <h4>Introducing the Adapter Layer:</h4>
+    <p>
+        Now, let's isolate our app with its own data models. Check out this approach:
+
+
+    </p>
+    <img class="img-fluid mb-4 " src="/img/blog-1-img-2.png" alt="Demo Image">
+    As you see, our app now speaks in its own language. Backend DTOs no longer dictate our app's data structure. We define our app models, and the adapter layer does the translation work.
+    <p></p>
+
+</section>
+<section>
+    <h4>Applying the Approach:</h4>
+    <p>This method is a game-changer for both new and existing projects. It's straightforward and doesn't pile on extra work.
+
+        For existing projects already tied to backend models, begin with creating adapter services for your use cases. Initially, let these adapters simply pass through the data. This grants you an intermediary layer. Gradually, you can evolve your app's models to serve the app's efficiency, not just to mirror the backend.</p>
+</section>
+
+<section>
+    <h2>Conclusion:
+    </h2>
+    <p>Starting with an adapter layer might seem like a small step, but it's a leap towards a robust, Clean Architecture. It's about making your client app not just independent, but resilient and ready for the future.</p>
+</section>
