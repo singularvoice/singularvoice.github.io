@@ -2,8 +2,8 @@
 layout: post
 title: "The Shield Against Backend Turbulence"
 date: 2024-01-01 21:00:00 +0430
-permalink: /future-proof-our-app.html
-background: '/img/posts/05.jpg'
+permalink: /the-shield-against-backend-turbulence
+background: '/img/posts/bg-2024-01-01.png'
 ---
 
 <section>
@@ -37,9 +37,6 @@ background: '/img/posts/05.jpg'
     </p>
     <pre>
         <code>
-            javascriptCopy code
-import React, { useState, useEffect } from 'react';
-
 interface UserProfile {
   id: string;
   name: string;
@@ -72,7 +69,6 @@ if (!userProfile) {
 };
 
 export default UserProfileComponent;
-
         </code>
     </pre>
 
@@ -81,10 +77,7 @@ export default UserProfileComponent;
         Now, let's isolate our app with its own data models. Check out this approach:
     </p>
     <pre>
-
         <code>
-            javascriptCopy code
-
 // UserApiClientService handles the API calls
 class UserApiClientService {
   private baseUrl: string;
@@ -157,7 +150,6 @@ const UserProfileComponent: React.FC<{ userId: string }> = ({ userId }) => {
 };
 
 export default UserProfileComponent;
-
         </code>
     </pre>
     As you see, our app now speaks in its own language. Backend DTOs no longer dictate our app's data structure. We

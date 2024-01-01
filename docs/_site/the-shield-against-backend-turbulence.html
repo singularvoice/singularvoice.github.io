@@ -21,7 +21,7 @@
   <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/future-proof-our-app.html">
+  <link rel="canonical" href="http://localhost:4000/the-shield-against-backend-turbulence">
   <link rel="alternate" type="application/rss+xml" title="Singular Voice" href="/feed.xml">
   <link rel="icon" type="image/png" href="/img/favicon.png">
 
@@ -77,7 +77,7 @@
 
   <!-- Page Header -->
 
-<header class="masthead" style="background-image: url('/img/posts/05.jpg')">
+<header class="masthead" style="background-image: url('/img/posts/bg-2024-01-01.png')">
   
     <div class="overlay"></div>
     <div class="container">
@@ -134,9 +134,6 @@
     </p>
     <pre>
         <code>
-            javascriptCopy code
-import React, { useState, useEffect } from 'react';
-
 interface UserProfile {
   id: string;
   name: string;
@@ -169,7 +166,6 @@ if (!userProfile) {
 };
 
 export default UserProfileComponent;
-
         </code>
     </pre>
 
@@ -178,10 +174,7 @@ export default UserProfileComponent;
         Now, let's isolate our app with its own data models. Check out this approach:
     </p>
     <pre>
-
         <code>
-            javascriptCopy code
-
 // UserApiClientService handles the API calls
 class UserApiClientService {
   private baseUrl: string;
@@ -254,7 +247,6 @@ const UserProfileComponent: React.FC<{ userId: string }> = ({ userId }) => {
 };
 
 export default UserProfileComponent;
-
         </code>
     </pre>
     As you see, our app now speaks in its own language. Backend DTOs no longer dictate our app's data structure. We
