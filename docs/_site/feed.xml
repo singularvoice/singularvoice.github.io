@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-01T23:10:16+03:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Singular Voice</title><subtitle>Thoughts of a software engineer that abandoned from his favorite world</subtitle><author><name>Amir</name></author><entry><title type="html">The Shield Against Backend Turbulence</title><link href="http://localhost:4000/future-proof-our-app.html" rel="alternate" type="text/html" title="The Shield Against Backend Turbulence" /><published>2024-01-01T20:00:00+03:30</published><updated>2024-01-01T20:00:00+03:30</updated><id>http://localhost:4000/future-proof-our-app</id><content type="html" xml:base="http://localhost:4000/future-proof-our-app.html"><![CDATA[<section>
-    <p>You push a new update, and your app is shining—until the backend team updates their APIs. Now, your app's features start breaking. What if there was a way to shield your app from such disruptions? This isn't about overhauling your entire architecture overnight; it's about starting with a single, manageable step drawn from Uncle Bob's Clean Architecture principles.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-02T00:03:44+03:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Singular Voice</title><subtitle>Thoughts of a software engineer that abandoned from his favorite world</subtitle><author><name>Amir</name></author><entry><title type="html">The Shield Against Backend Turbulence</title><link href="http://localhost:4000/future-proof-our-app.html" rel="alternate" type="text/html" title="The Shield Against Backend Turbulence" /><published>2024-01-01T20:00:00+03:30</published><updated>2024-01-01T20:00:00+03:30</updated><id>http://localhost:4000/future-proof-our-app</id><content type="html" xml:base="http://localhost:4000/future-proof-our-app.html"><![CDATA[<section>
+    <p>You push a new update, and your app is shining—until the backend team updates their APIs. Now, your app's
+        features start breaking. What if there was a way to shield your app from such disruptions? This isn't about
+        overhauling your entire architecture overnight; it's about starting with a single, manageable step drawn from
+        Uncle Bob's Clean Architecture principles.</p>
 </section>
 
 <section>
     <h4>Context and Background:</h4>
-    <p>Implementing the full spectrum of Clean Architecture can seem daunting, and that's not our goal today. Instead, let's tackle one specific pain point: the ripple effect of changes in the Backend API layer. It's a simple task, a starting point for bigger things.</p>
+    <p>Implementing the full spectrum of Clean Architecture can seem daunting, and that's not our goal today. Instead,
+        let's tackle one specific pain point: the ripple effect of changes in the Backend API layer. It's a simple task,
+        a starting point for bigger things.</p>
 </section>
 <section>
     <h4>Why This First Step Matters:</h4>
@@ -16,34 +21,158 @@
 </section>
 <section>
     <h2 class="mt-4">The Solution: Abstraction and Adapter Layer:</h2>
-    <p>To create an app that stands independent of backend fluctuations, we need a shield—an adapter layer that abstracts away the backend's Request DTOs and Response DTOs.</p>
+    <p>To create an app that stands independent of backend fluctuations, we need a shield—an adapter layer that
+        abstracts away the backend's Request DTOs and Response DTOs.</p>
     <h4>Before the Adapter Layer:</h4>
     <p>
         Here's a familiar scene: our app's user profile fetch function breaks with a backend change.
     </p>
-    <img class="img-fluid mb-4" src="/img/blog-1-img-1.png" alt="Demo Image">
+    <pre>
+        <code>
+            javascriptCopy code
+import React, { useState, useEffect } from 'react';
+
+interface UserProfile {
+  id: string;
+  name: string;
+  email: string;
+  // ... other properties exactly as they come from the API
+}
+
+const UserProfileComponent: React.FC<{ userId: string }> = ({ userId }) => {
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await fetch(`https://api.example.com/users/${userId}`);
+        const userProfile: UserProfile = await response.json();
+        setUserProfile(userProfile);
+      } catch (error) {
+        console.error("Failed to fetch user profile:", error);
+      }
+    };
+
+    fetchUserProfile();
+  }, [userId]);
+
+if (!userProfile) {
+    return //SomeLoading
+  }
+
+  return //SomeComponent
+};
+
+export default UserProfileComponent;
+
+        </code>
+    </pre>
+
     <h4>Introducing the Adapter Layer:</h4>
     <p>
         Now, let's isolate our app with its own data models. Check out this approach:
-
-
     </p>
-    <img class="img-fluid mb-4 " src="/img/blog-1-img-2.png" alt="Demo Image">
-    As you see, our app now speaks in its own language. Backend DTOs no longer dictate our app's data structure. We define our app models, and the adapter layer does the translation work.
+    <pre>
+
+        <code>
+            javascriptCopy code
+
+// UserApiClientService handles the API calls
+class UserApiClientService {
+  private baseUrl: string;
+
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl;
+  }
+
+  async fetchProfile(userId: string): Promise<UserApiProfile> {
+    const response = await fetch(`${this.baseUrl}/users/${userId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch user profile');
+    }
+    return response.json();
+  }
+}
+
+// UserApiAdapterService converts between API and App models
+class UserApiAdapterService {
+  static fromApiProfile(apiProfile: UserApiProfile): AppUserProfile {
+    return {
+      id: apiProfile.user_id,
+      fullName: `${apiProfile.first_name} ${apiProfile.last_name}`,
+      emailAddress: apiProfile.email,
+      // ... other conversions
+    };
+  }
+}
+
+// UserApiProfile reflects the API response structure
+interface UserApiProfile {
+  user_id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  // ... other properties as they come from the API
+}
+
+// AppUserProfile reflects the app's internal model structure
+interface AppUserProfile {
+  id: string;
+  fullName: string;
+  emailAddress: string;
+  // ... other properties as needed by the app
+}
+
+const UserProfileComponent: React.FC<{ userId: string }> = ({ userId }) => {
+  const [userProfile, setUserProfile] = useState<AppUserProfile | null>(null);
+  const apiClient = new UserApiClientService('https://api.example.com');
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const userApiProfile = await apiClient.fetchProfile(userId);
+        const appUserProfile = UserApiAdapterService.fromApiProfile(userApiProfile);
+        setUserProfile(appUserProfile);
+      } catch (error) {
+        console.error("Failed to fetch user profile:", error);
+      }
+    };
+
+    fetchUserProfile();
+  }, [userId, apiClient]);
+
+  if (!userProfile) {
+    return //SomeLoading
+  }
+
+  return //SomeComponent
+};
+
+export default UserProfileComponent;
+
+        </code>
+    </pre>
+    As you see, our app now speaks in its own language. Backend DTOs no longer dictate our app's data structure. We
+    define our app models, and the adapter layer does the translation work.
     <p></p>
 
 </section>
 <section>
     <h4>Applying the Approach:</h4>
-    <p>This method is a game-changer for both new and existing projects. It's straightforward and doesn't pile on extra work.
+    <p>This method is a game-changer for both new and existing projects. It's straightforward and doesn't pile on extra
+        work.
 
-        For existing projects already tied to backend models, begin with creating adapter services for your use cases. Initially, let these adapters simply pass through the data. This grants you an intermediary layer. Gradually, you can evolve your app's models to serve the app's efficiency, not just to mirror the backend.</p>
+        For existing projects already tied to backend models, begin with creating adapter services for your use cases.
+        Initially, let these adapters simply pass through the data. This grants you an intermediary layer. Gradually,
+        you can evolve your app's models to serve the app's efficiency, not just to mirror the backend.</p>
 </section>
 
 <section>
     <h2>Conclusion:
     </h2>
-    <p>Starting with an adapter layer might seem like a small step, but it's a leap towards a robust, Clean Architecture. It's about making your client app not just independent, but resilient and ready for the future.</p>
+    <p>Starting with an adapter layer might seem like a small step, but it's a leap towards a robust, Clean
+        Architecture. It's about making your client app not just independent, but resilient and ready for the
+        future.</p>
 </section>]]></content><author><name>Amir</name></author><summary type="html"><![CDATA[You push a new update, and your app is shining—until the backend team updates their APIs. Now, your app's features start breaking. What if there was a way to shield your app from such disruptions? This isn't about overhauling your entire architecture overnight; it's about starting with a single, manageable step drawn from Uncle Bob's Clean Architecture principles.]]></summary></entry><entry><title type="html">The Story Behind ‘SingularVoice’</title><link href="http://localhost:4000/story-behind-singularvoice.html" rel="alternate" type="text/html" title="The Story Behind ‘SingularVoice’" /><published>2023-12-20T16:00:00+03:30</published><updated>2023-12-20T16:00:00+03:30</updated><id>http://localhost:4000/story-behind-singularvoice</id><content type="html" xml:base="http://localhost:4000/story-behind-singularvoice.html"><![CDATA[<section>
     <h2>Introduction</h2>
     <p>Have you ever watched "Person of Interest"? It's a show that mixes technology, good and bad, and exciting stories. It's about a super-smart computer, called The Machine, that knows when bad things will happen. This show isn't just fun to watch; it makes you think about important stuff like right and wrong and how tech affects our lives.</p>

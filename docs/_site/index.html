@@ -29,6 +29,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/androidstudio.css" />
+
+  <script>
+    var preTags = document.getElementsByTagName('pre');
+    var size = preTags.length;
+    for (var i=0; i < size; i++) {
+      preTags[i].innerHTML = '<code>'+preTags[i].innerHTML+'</code>'; // wrap content of pre tag in code tag
+    }
+    hljs.highlightAll(); // apply highlighting
+  </script>
 </head>
 
 
@@ -104,7 +116,7 @@
             on
             January 01, 2024 &middot; <span class="reading-time" title="Estimated read time">
   
-   2 mins  read </span>
+   5 mins  read </span>
             
           </p>
         </article>
