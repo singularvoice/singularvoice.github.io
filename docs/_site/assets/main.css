@@ -9554,6 +9554,30 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.resume-contact h1 {
+  font-size: 2.5em; /* Adjust the size as needed */
+  font-weight: bold;
+}
+.resume-contact .lead {
+  font-size: 1.5em; /* Adjust the size as needed */
+  font-weight: bold;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.resume-contact .material-icons {
+  vertical-align: bottom; /* Aligns icon with the text */
+}
+.resume-contact .row {
+  margin-bottom: 10px; /* Adds spacing between rows */
+}
+.resume-contact a {
+  color: black; /* Ensures the links are the same color as the text */
+  text-decoration: none; /* Removes underline from links */
+}
+.resume-contact a:hover {
+  text-decoration: underline; /* Adds underline on hover for links */
+}
+
 .resume-header {
   display: flex;
   flex-direction: column;
@@ -9634,10 +9658,6 @@ header.masthead .post-heading .meta a {
     display: none;
   }
   footer * {
-    display: none;
-  }
-  /* Hide other elements inside the .container that are not part of your content */
-  .masthead, .row > div:not(:first-child) {
     display: none;
   }
 }
