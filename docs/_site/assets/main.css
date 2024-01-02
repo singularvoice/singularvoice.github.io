@@ -9628,4 +9628,18 @@ header.masthead .post-heading .meta a {
   border-style: solid;
 }
 
+@media print {
+  /* Hide every element */
+  header * {
+    display: none;
+  }
+  footer * {
+    display: none;
+  }
+  /* Hide other elements inside the .container that are not part of your content */
+  .masthead, .row > div:not(:first-child) {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */
